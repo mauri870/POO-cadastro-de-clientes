@@ -12,7 +12,7 @@ class Cliente
     /**
      * @var
      */
-    public $nome,$endereco,$cpf;
+    public $nome,$endereco,$cpf, $pessoa;
 
     /**
      * @return mixed
@@ -68,6 +68,22 @@ class Cliente
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPessoa()
+    {
+        return $this->pessoa;
+    }
+
+    /**
+     * @param mixed $pessoa
+     */
+    public function setPessoa($pessoa)
+    {
+        $this->pessoa = $pessoa;
+    }
+
 
     /**
      * Generate randon clients
@@ -106,6 +122,4 @@ class Cliente
             return $clientes;
         }
     }
-
-
 }
