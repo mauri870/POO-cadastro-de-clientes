@@ -58,6 +58,11 @@ require_once('class/Cliente.php')
                                    echo "<li>Avaliacao:".$cliente->getClientRate()." estrelas</li>";
                                }
                             ?>
+                            <?php
+                               if(!empty($cliente->getCustomBillingAdress())){
+                                   echo "<li>Endereco:".$cliente->getCustomBillingAdress()."</li>";
+                               }
+                            ?>
                         </ul>
                     </div>
                 </div>

@@ -1,7 +1,8 @@
 <?php
 require "interfaces/ClientRateInterface.php";
+require "interfaces/CustomBillingAdressInterface.php";
 
-class Cliente implements ClientRateInterface
+class Cliente implements ClientRateInterface, CustomBillingAdressInterface
 {
 
     /**
@@ -13,7 +14,7 @@ class Cliente implements ClientRateInterface
     /**
      * @var
      */
-    public $nome,$endereco,$cpf, $pessoa, $rate;
+    public $nome,$endereco,$cpf, $pessoa, $rate, $customBillingAdress;
 
 
     /**
@@ -32,6 +33,23 @@ class Cliente implements ClientRateInterface
     function getClientRate()
     {
         return $this->rate;
+    }
+
+
+    /**
+     * @param $adress
+     */
+    function setCustomBillingAdress($adress)
+    {
+        $this->customBillingAdress = $adress;
+    }
+
+    /**
+     * @return mixed
+     */
+    function getCustomBillingAdress()
+    {
+        return $this->customBillingAdress;
     }
 
     /**
@@ -106,7 +124,7 @@ class Cliente implements ClientRateInterface
 
 
     /**
-     * Generate randon clients
+     * Generate random clients
      *
      * @param $qt
      * @return mixed
@@ -118,6 +136,8 @@ class Cliente implements ClientRateInterface
             $clientes[$i]->setNome("Cliente" . $i)->setEndereco("Rua" . rand(1, 200))->setCpf(rand(1, 5000000000))->setPessoa($randPessoa);
             if ($i%2 == 0){
                 $clientes[$i]->setClientRate(rand(1,5));
+            }else{
+                $clientes[$i]->setCustomBillingAdress("Rua ".rand(1,30));
             }
         }
         return $clientes;
