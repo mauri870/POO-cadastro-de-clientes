@@ -52,6 +52,7 @@ require_once('class/Cliente.php')
                         <ul>
                             <li>Endereco: <?= $cliente->getEndereco() ?></li>
                             <li>Cpf: <?= $cliente->getCPF() ?></li>
+                            <li>Pessoa: <?= $cliente->getPessoa() == 0 ? "Fisica" : "Juridica" ?></li>
                         </ul>
                     </div>
                 </div>

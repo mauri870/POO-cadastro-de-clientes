@@ -81,7 +81,7 @@ class Cliente
      */
     public function setPessoa($pessoa)
     {
-        $this->pessoa = $pessoa;
+        return $this->pessoa = $pessoa;
     }
 
 
@@ -94,7 +94,8 @@ class Cliente
     public static function generateRandomClients($qt){
         for ($i = 0; $i < $qt; $i++) {
             $clientes[$i] = new Cliente();
-            $clientes[$i]->setNome("Cliente" . $i)->setEndereco("Rua" . rand(1, 200))->setCpf(rand(1, 5000000000));
+            $randPessoa = rand(0,1);
+            $clientes[$i]->setNome("Cliente" . $i)->setEndereco("Rua" . rand(1, 200))->setCpf(rand(1, 5000000000))->setPessoa($randPessoa);
         }
         return $clientes;
     }
