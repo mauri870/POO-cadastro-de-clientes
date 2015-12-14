@@ -53,6 +53,11 @@ require_once('class/Cliente.php')
                             <li>Endereco: <?= $cliente->getEndereco() ?></li>
                             <li>Cpf: <?= $cliente->getCPF() ?></li>
                             <li>Pessoa: <?= $cliente->getPessoa() == 0 ? "Fisica" : "Juridica" ?></li>
+                            <?php
+                               if(!empty($cliente->getClientRate())){
+                                   echo "<li>Avaliacao:".$cliente->getClientRate()." estrelas</li>";
+                               }
+                            ?>
                         </ul>
                     </div>
                 </div>

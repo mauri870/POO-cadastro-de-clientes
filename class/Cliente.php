@@ -1,6 +1,7 @@
 <?php
+require "interfaces/ClientRateInterface.php";
 
-class Cliente
+class Cliente implements ClientRateInterface
 {
 
     /**
@@ -12,7 +13,26 @@ class Cliente
     /**
      * @var
      */
-    public $nome,$endereco,$cpf, $pessoa;
+    public $nome,$endereco,$cpf, $pessoa, $rate;
+
+
+    /**
+     * Set client rate
+     * @param $rate (1-5)
+     */
+    function setClientRate($rate)
+    {
+        $this->rate = $rate;
+    }
+
+    /**
+     * Set client rate
+     * @param $rate (1-5)
+     */
+    function getClientRate()
+    {
+        return $this->rate;
+    }
 
     /**
      * @return mixed
@@ -96,6 +116,9 @@ class Cliente
             $clientes[$i] = new Cliente();
             $randPessoa = rand(0,1);
             $clientes[$i]->setNome("Cliente" . $i)->setEndereco("Rua" . rand(1, 200))->setCpf(rand(1, 5000000000))->setPessoa($randPessoa);
+            if ($i%2 == 0){
+                $clientes[$i]->setClientRate(rand(1,5));
+            }
         }
         return $clientes;
     }
