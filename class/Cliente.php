@@ -5,16 +5,7 @@ require "interfaces/CustomBillingAdressInterface.php";
 class Cliente implements ClientRateInterface, CustomBillingAdressInterface
 {
 
-    /**
-     * @var
-     */
-    /**
-     * @var
-     */
-    /**
-     * @var
-     */
-    public $nome,$endereco,$cpf, $pessoa, $rate, $customBillingAdress;
+    private $nome,$endereco,$cpf, $pessoa, $rate, $customBillingAdress;
 
 
     /**
